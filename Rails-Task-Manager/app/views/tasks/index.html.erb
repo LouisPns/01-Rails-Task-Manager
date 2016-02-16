@@ -1,0 +1,18 @@
+<h1>Que voulez vous faire ? </h1>
+
+<%= link_to("ajouter une tache ?", new_task_path) %>
+
+
+<h3>Liste des taches </h3>
+<% @tasks.each do |task| %>
+  <ol>
+  <%= link_to task.name, task_path(task) %>
+  <%= link_to("modify?", edit_task_path(task)) %>
+
+  <%= link_to "Delete", task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+  </ol>
+  <% end %>
+
+
